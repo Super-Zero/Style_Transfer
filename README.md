@@ -5,7 +5,9 @@ The model a pre-trained Net, the VGG19 Network, to extract the features of the c
 
 The below image shows on the left the content or target image and on the right the style image that is going to be transfered to the target image.
 
+
 <img src="images/Content-Style.jpg">
+
 
 
 The below image show the before and after results of the style transfer.
