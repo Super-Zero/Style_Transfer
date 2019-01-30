@@ -141,19 +141,13 @@ fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(20, 10))
 
 # content and style ims side-by-side
 ax1.imshow(im_convert(content))
-<<<<<<< HEAD
 ax1.set_title("Content/Target Image", fontdict={'fontsize': 18, 'fontweight': 'bold'})
 ax2.imshow(im_convert(style))
 ax2.set_title("Style Image", fontdict={'fontsize': 18, 'fontweight': 'bold'})
-plt.show()
-
-
-
-=======
 ax2.imshow(im_convert(style))
 plt.show()
 
->>>>>>> 9e95fe25ece159cd6be1b2fbf5cc4c398e46abac
+
 # weights for each style layer
 # weighting earlier layers more will result in *larger* style artifacts
 # notice we are excluding `conv4_2` our content representation
@@ -164,11 +158,8 @@ style_weights = {'conv1_1': 1.,
                  'conv5_1': 0.25}
 
 content_weight = 1  # alpha
-<<<<<<< HEAD
 style_weight = 1e6  # beta
-=======
-style_weight = 1e8  # beta
->>>>>>> 9e95fe25ece159cd6be1b2fbf5cc4c398e46abac
+
 
 # get content and style features only once before training
 content_features = get_features(content, vgg)
@@ -186,11 +177,7 @@ target = content.clone().requires_grad_(True).to(device)
 show_every = 400
 
 # iteration hyperparameters
-<<<<<<< HEAD
 optimizer = optim.Adam([target], lr=0.003)
-=======
-optimizer = optim.Adam([target], lr=0.0002)
->>>>>>> 9e95fe25ece159cd6be1b2fbf5cc4c398e46abac
 steps = 2000  # decide how many iterations to update your image (5000)
 
 for ii in range(1, steps + 1):
@@ -237,13 +224,7 @@ for ii in range(1, steps + 1):
 # display content and final, target image
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(20, 10))
 ax1.imshow(im_convert(content))
-<<<<<<< HEAD
-ax2.set_title("Before", fontdict={'fontsize': 18, 'fontweight': 'bold'})
+ax1.set_title("Before", fontdict={'fontsize': 18, 'fontweight': 'bold'})
 ax2.imshow(im_convert(target))
 ax2.set_title("After", fontdict={'fontsize': 18, 'fontweight': 'bold'})
 plt.show()
-=======
-ax2.imshow(im_convert(target))
-plt.show()
-
->>>>>>> 9e95fe25ece159cd6be1b2fbf5cc4c398e46abac
